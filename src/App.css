@@ -9,6 +9,38 @@
   perspective: 1000px;
 }
 
+.countdown-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.play-button {
+  padding: 30px 60px;
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+  margin-bottom: 50px;
+}
+
+.play-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+}
+
+.play-button:active {
+  transform: scale(0.98);
+}
+
 .countdown-number {
   font-size: 25rem;
   font-weight: bold;

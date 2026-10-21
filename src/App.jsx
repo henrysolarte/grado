@@ -5,20 +5,22 @@ function App() {
   const [countdown, setCountdown] = useState(10)
   const [stage, setStage] = useState('countdown') // countdown, video, starwars, photos, graduationCard
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0)
-  const [audioUnlocked, setAudioUnlocked] = useState(false)
+  const [countdownStarted, setCountdownStarted] = useState(false)
   const videoRef = useRef(null)
   const audioRef = useRef(null)
   const countdownAudioRef = useRef(null)
 
-  // Desbloquear audio con primer click
-  const handleContainerClick = () => {
-    if (!audioUnlocked) {
-      setAudioUnlocked(true)
-      // Intentar reproducir audio para desbloquear autoplay
-      if (countdownAudioRef.current) {
-        countdownAudioRef.current.play().catch(() => {})
-        countdownAudioRef.current.pause()
-      }
+  // Iniciar countdown y audio simultáneamente
+  const handlePlayClick = () => {
+    setCountdownStarted(true)
+    // Reproducir audio
+    if (countdownAudioRef.current) {
+      countdownAudioRef.current.currentTime = 0
+      countdownAudioRef.current.muted = false
+      countdownAudioRef.current.volume = 1
+      countdownAudioRef.current.play().catch(err => {
+        console.log('Error al reproducir audio:', err)
+      })
     }
   }
 
@@ -32,17 +34,18 @@ function App() {
   useEffect(() => {
     if (countdown < 0 && stage === 'countdown') {
       setStage('video')
+      setCountdownStarted(false)
       return
     }
 
-    if (stage === 'countdown') {
+    if (stage === 'countdown' && countdownStarted) {
       const timer = setTimeout(() => {
         setCountdown(countdown - 1)
       }, 1000)
 
       return () => clearTimeout(timer)
     }
-  }, [countdown, stage])
+  }, [countdown, stage, countdownStarted])
 
   useEffect(() => {
     if (stage === 'video' && videoRef.current) {
@@ -57,25 +60,13 @@ function App() {
     }
   }, [stage])
 
-  // Control de audio del countdown
+  // Detener audio cuando se cambia de stage
   useEffect(() => {
-    if (stage === 'countdown' && countdownAudioRef.current && audioUnlocked) {
+    if (stage !== 'countdown' && countdownAudioRef.current) {
+      countdownAudioRef.current.pause()
       countdownAudioRef.current.currentTime = 0
-      countdownAudioRef.current.muted = false
-      countdownAudioRef.current.volume = 1
-      const playPromise = countdownAudioRef.current.play()
-      if (playPromise !== undefined) {
-        playPromise.catch(err => {
-          console.log('Error al reproducir audio countdown:', err)
-        })
-      }
-    } else {
-      if (countdownAudioRef.current) {
-        countdownAudioRef.current.pause()
-        countdownAudioRef.current.currentTime = 0
-      }
     }
-  }, [stage, audioUnlocked])
+  }, [stage])
 
   useEffect(() => {
     if (stage === 'starwars') {
@@ -129,7 +120,7 @@ function App() {
   }, [stage])
 
   return (
-    <div className="countdown-container" onClick={handleContainerClick}>
+    <div className="countdown-container">
       <audio 
         ref={audioRef}
         src="/musica/MCE.mp3"
@@ -139,12 +130,20 @@ function App() {
       <audio 
         ref={countdownAudioRef}
         src="/musica/cuenta-regresiva.mp3"
-        muted
       ></audio>
 
       {stage === 'countdown' && (
-        <div className="countdown-number">
-          {countdown}
+        <div className="countdown-wrapper">
+          {!countdownStarted && (
+            <button className="play-button" onClick={handlePlayClick}>
+              ▶ PLAY
+            </button>
+          )}
+          {countdownStarted && (
+            <div className="countdown-number">
+              {countdown}
+            </div>
+          )}
         </div>
       )}
 
