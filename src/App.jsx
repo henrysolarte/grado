@@ -5,9 +5,22 @@ function App() {
   const [countdown, setCountdown] = useState(10)
   const [stage, setStage] = useState('countdown') // countdown, video, starwars, photos, graduationCard
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0)
+  const [audioUnlocked, setAudioUnlocked] = useState(false)
   const videoRef = useRef(null)
   const audioRef = useRef(null)
   const countdownAudioRef = useRef(null)
+
+  // Desbloquear audio con primer click
+  const handleContainerClick = () => {
+    if (!audioUnlocked) {
+      setAudioUnlocked(true)
+      // Intentar reproducir audio para desbloquear autoplay
+      if (countdownAudioRef.current) {
+        countdownAudioRef.current.play().catch(() => {})
+        countdownAudioRef.current.pause()
+      }
+    }
+  }
 
   const photos = [
     'samito1.jpg', 'samito2.jpg', 'samito3.jpg', 'samito4.jpg',
@@ -46,7 +59,7 @@ function App() {
 
   // Control de audio del countdown
   useEffect(() => {
-    if (stage === 'countdown' && countdownAudioRef.current) {
+    if (stage === 'countdown' && countdownAudioRef.current && audioUnlocked) {
       countdownAudioRef.current.currentTime = 0
       countdownAudioRef.current.muted = false
       countdownAudioRef.current.volume = 1
@@ -62,7 +75,7 @@ function App() {
         countdownAudioRef.current.currentTime = 0
       }
     }
-  }, [stage])
+  }, [stage, audioUnlocked])
 
   useEffect(() => {
     if (stage === 'starwars') {
@@ -116,7 +129,7 @@ function App() {
   }, [stage])
 
   return (
-    <div className="countdown-container">
+    <div className="countdown-container" onClick={handleContainerClick}>
       <audio 
         ref={audioRef}
         src="/musica/MCE.mp3"
@@ -154,7 +167,7 @@ function App() {
       {stage === 'starwars' && (
         <div className="starwars-container">
           <div className="starwars-text">
-            <p>Hace muchos años, en el planeta Tierra, un lindo niño llamado Samuel Solarte inició su aventura. Esta etapa que ha batallado durante tanto tiempo llega a su fin, pero este final es realmente el inicio de su verdadera lucha.</p>
+            <p>Hace Dieciséis años, en el planeta Tierra, un lindo niño llamado Samuel Solarte inició su aventura. Esta etapa que ha batallado durante tanto tiempo llega a su fin, pero este final es realmente el inicio de su verdadera lucha.</p>
           </div>
         </div>
       )}
