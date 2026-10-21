@@ -7,6 +7,7 @@ function App() {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0)
   const videoRef = useRef(null)
   const audioRef = useRef(null)
+  const countdownAudioRef = useRef(null)
 
   const photos = [
     'samito1.jpg', 'samito2.jpg', 'samito3.jpg', 'samito4.jpg',
@@ -39,6 +40,21 @@ function App() {
         playPromise.catch(err => {
           console.log('Error en reproducción:', err)
         })
+      }
+    }
+  }, [stage])
+
+  // Control de audio del countdown
+  useEffect(() => {
+    if (stage === 'countdown' && countdownAudioRef.current) {
+      countdownAudioRef.current.currentTime = 0
+      countdownAudioRef.current.play().catch(err => {
+        console.log('Error al reproducir audio countdown:', err)
+      })
+    } else {
+      if (countdownAudioRef.current) {
+        countdownAudioRef.current.pause()
+        countdownAudioRef.current.currentTime = 0
       }
     }
   }, [stage])
@@ -100,6 +116,11 @@ function App() {
         ref={audioRef}
         src="/musica/MCE.mp3"
         loop
+      ></audio>
+
+      <audio 
+        ref={countdownAudioRef}
+        src="/musica/cuenta-regresiva.mp3"
       ></audio>
 
       {stage === 'countdown' && (
