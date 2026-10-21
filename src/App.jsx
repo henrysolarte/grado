@@ -48,9 +48,14 @@ function App() {
   useEffect(() => {
     if (stage === 'countdown' && countdownAudioRef.current) {
       countdownAudioRef.current.currentTime = 0
-      countdownAudioRef.current.play().catch(err => {
-        console.log('Error al reproducir audio countdown:', err)
-      })
+      countdownAudioRef.current.muted = false
+      countdownAudioRef.current.volume = 1
+      const playPromise = countdownAudioRef.current.play()
+      if (playPromise !== undefined) {
+        playPromise.catch(err => {
+          console.log('Error al reproducir audio countdown:', err)
+        })
+      }
     } else {
       if (countdownAudioRef.current) {
         countdownAudioRef.current.pause()
@@ -121,6 +126,7 @@ function App() {
       <audio 
         ref={countdownAudioRef}
         src="/musica/cuenta-regresiva.mp3"
+        muted
       ></audio>
 
       {stage === 'countdown' && (
