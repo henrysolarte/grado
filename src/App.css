@@ -1,0 +1,390 @@
+.countdown-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1a1a1a;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  perspective: 1000px;
+}
+
+.countdown-number {
+  font-size: 25rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  animation: pulse 1s ease-in-out;
+  line-height: 1;
+}
+
+.starwars-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  perspective: 1000px;
+  overflow: hidden;
+}
+
+.starwars-text {
+  max-width: 600px;
+  text-align: center;
+  animation: starwars-fade 10s linear forwards;
+  transform-origin: center;
+}
+
+.starwars-text p {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ffd700;
+  text-shadow: 
+    0 0 10px rgba(255, 215, 0, 0.5),
+    0 0 20px rgba(255, 215, 0, 0.3);
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+@keyframes starwars-fade {
+  0% {
+    opacity: 1;
+    transform: perspective(1200px) rotateX(0deg) scale(1) translateZ(0);
+    font-size: 2.5rem;
+  }
+  65% {
+    opacity: 1;
+    transform: perspective(1200px) rotateX(0deg) scale(1) translateZ(0);
+    font-size: 2.5rem;
+  }
+  100% {
+    opacity: 0;
+    transform: perspective(1200px) rotateX(60deg) scale(0.5) translateZ(-500px);
+    font-size: 0.5rem;
+  }
+}
+
+.video-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1a1a1a;
+}
+
+.video-player {
+  max-width: 90%;
+  max-height: 90%;
+  width: auto;
+  height: auto;
+}
+
+.photos-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1a1a1a;
+  overflow: hidden;
+}
+
+.photo-display {
+  max-width: 90%;
+  max-height: 90%;
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  animation: 2s ease-in-out forwards;
+}
+
+/* Efecto 1: Fade + Zoom */
+.photo-effect-0 {
+  animation-name: fade-zoom;
+}
+
+@keyframes fade-zoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}
+
+/* Efecto 2: Slide izquierda */
+.photo-effect-1 {
+  animation-name: slide-left;
+}
+
+@keyframes slide-left {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+}
+
+/* Efecto 3: Slide derecha */
+.photo-effect-2 {
+  animation-name: slide-right;
+}
+
+@keyframes slide-right {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+}
+
+/* Efecto 4: Slide arriba */
+.photo-effect-3 {
+  animation-name: slide-up;
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+}
+
+/* Efecto 5: Slide abajo - CAMBIADO A GLOW */
+.photo-effect-4 {
+  animation-name: glow-fade;
+}
+
+@keyframes glow-fade {
+  0% {
+    opacity: 0;
+    filter: blur(10px) brightness(0.5);
+  }
+  50% {
+    opacity: 1;
+    filter: blur(0px) brightness(1.2);
+  }
+  100% {
+    opacity: 0;
+    filter: blur(10px) brightness(0.5);
+  }
+}
+
+/* Efecto 6: Rotate + Fade */
+.photo-effect-5 {
+  animation-name: rotate-fade;
+}
+
+@keyframes rotate-fade {
+  0% {
+    opacity: 0;
+    transform: rotate(-10deg) scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(10deg) scale(0.9);
+  }
+}
+
+/* Efecto 7: Scale + Rotate - CAMBIADO A WAVE */
+.photo-effect-6 {
+  animation-name: wave-fade;
+}
+
+@keyframes wave-fade {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) skewY(-5deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) skewY(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.9) skewY(5deg);
+  }
+}
+
+/* Efecto 8: Flip horizontal */
+.photo-effect-7 {
+  animation-name: flip-h;
+}
+
+@keyframes flip-h {
+  0% {
+    opacity: 0;
+    transform: scaleX(0) rotateY(90deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1) rotateY(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleX(0) rotateY(-90deg);
+  }
+}
+
+/* Efecto 9: Bounce + Fade */
+.photo-effect-8 {
+  animation-name: bounce-fade;
+}
+
+@keyframes bounce-fade {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.8);
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.05);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  75% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.05);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.8);
+  }
+}
+
+/* Efecto 10: Pulse + Fade */
+.photo-effect-9 {
+  animation-name: pulse-fade;
+}
+
+@keyframes pulse-fade {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  75% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}
+
+.end-message {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+/* Graduation Card - Image Display */
+.graduation-card-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1a1a1a;
+  padding: 20px;
+}
+
+.graduation-card-image {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  animation: card-fade-in 0.8s ease-out;
+}
+
+@keyframes card-fade-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive para tablets */
+@media (max-width: 1024px) {
+  .countdown-number {
+    font-size: 15rem;
+  }
+  
+  .starwars-text p {
+    font-size: 1.8rem;
+  }
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  .countdown-number {
+    font-size: 10rem;
+  }
+  
+  .starwars-text p {
+    font-size: 1.2rem;
+  }
+}
