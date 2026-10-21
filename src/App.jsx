@@ -55,9 +55,14 @@ function App() {
 
   useEffect(() => {
     if (stage === 'photos' && currentPhotoIndex < photos.length) {
+      // La última foto (samito20) se muestra 4 segundos (2 estática + 2 fade)
+      // Las demás fotos se muestran 2 segundos
+      const isLastPhoto = currentPhotoIndex === photos.length - 1
+      const duration = isLastPhoto ? 4000 : 2000
+      
       const timer = setTimeout(() => {
         setCurrentPhotoIndex(currentPhotoIndex + 1)
-      }, 2000)
+      }, duration)
 
       return () => clearTimeout(timer)
     }
@@ -133,7 +138,7 @@ function App() {
             key={currentPhotoIndex}
             src={`/fotos/${photos[currentPhotoIndex]}`}
             alt={`Foto ${currentPhotoIndex + 1}`}
-            className={`photo-display photo-effect-${currentPhotoIndex % 10}`}
+            className={currentPhotoIndex === photos.length - 1 ? 'photo-display photo-effect-last-fade' : `photo-display photo-effect-${currentPhotoIndex % 10}`}
           />
         </div>
       )}
