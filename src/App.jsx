@@ -6,6 +6,7 @@ function App() {
   const [stage, setStage] = useState('countdown') // countdown, video, starwars, photos, graduationCard
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0)
   const videoRef = useRef(null)
+  const audioRef = useRef(null)
 
   const photos = [
     'samito1.jpg', 'samito2.jpg', 'samito3.jpg', 'samito4.jpg',
@@ -72,8 +73,30 @@ function App() {
     }
   }, [stage, currentPhotoIndex, photos.length])
 
+  // Control de música de fondo
+  useEffect(() => {
+    if (stage === 'starwars' || stage === 'photos' || stage === 'graduationCard') {
+      if (audioRef.current) {
+        audioRef.current.play().catch(err => {
+          console.log('Error al reproducir audio:', err)
+        })
+      }
+    } else {
+      if (audioRef.current) {
+        audioRef.current.pause()
+        audioRef.current.currentTime = 0
+      }
+    }
+  }, [stage])
+
   return (
     <div className="countdown-container">
+      <audio 
+        ref={audioRef}
+        src="/musica/MCE.mp3"
+        loop
+      ></audio>
+
       {stage === 'countdown' && (
         <div className="countdown-number">
           {countdown}
