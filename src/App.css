@@ -595,7 +595,7 @@
   width: 100%;
   max-width: 600px;
   max-height: 500px;
-  margin: 15px auto;
+  margin: 0 auto 10px auto;
   padding: 20px;
   border: 2px solid #C9A961;
   border-radius: 10px;
@@ -771,7 +771,7 @@
   padding: 40px;
   border-radius: 15px;
   max-width: 600px;
-  margin: 15px auto;
+  margin: 0 auto 10px auto;
   border: 2px solid #C9A961;
   text-align: center;
 }
@@ -779,13 +779,13 @@
 .confirmation-text {
   font-size: 1.3rem;
   color: #C9A961;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .whatsapp-buttons-group {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 
 .whatsapp-button {
@@ -819,7 +819,7 @@
   padding: 40px;
   border-radius: 15px;
   max-width: 600px;
-  margin: 15px auto;
+  margin: 0 auto 10px auto;
   border: 2px solid #C9A961;
   text-align: center;
 }
@@ -841,7 +841,7 @@
 .map-description {
   font-size: 1.1rem;
   color: #C9A961;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   font-style: italic;
 }
 
