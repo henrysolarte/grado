@@ -603,21 +603,23 @@
 
 /* Estilizar scroll bar */
 .gallery-grid::-webkit-scrollbar {
-  width: 12px;
+  width: 20px;
 }
 
 .gallery-grid::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.6);
   border-radius: 10px;
 }
 
 .gallery-grid::-webkit-scrollbar-thumb {
-  background: #C9A961;
+  background: linear-gradient(180deg, #C9A961, #ffd700);
   border-radius: 10px;
+  border: 2px solid #000;
 }
 
 .gallery-grid::-webkit-scrollbar-thumb:hover {
-  background: #ffd700;
+  background: linear-gradient(180deg, #ffd700, #C9A961);
+  box-shadow: 0 0 10px rgba(201, 169, 97, 0.8);
 }
 
 .gallery-item {
