@@ -592,8 +592,34 @@
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 20px;
   max-width: 1000px;
+  width: 100%;
+  max-height: 70vh;
   margin: 30px auto;
-  padding: 0 20px;
+  padding: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 2px solid #C9A961;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Estilizar scroll bar */
+.gallery-grid::-webkit-scrollbar {
+  width: 12px;
+}
+
+.gallery-grid::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.gallery-grid::-webkit-scrollbar-thumb {
+  background: #C9A961;
+  border-radius: 10px;
+}
+
+.gallery-grid::-webkit-scrollbar-thumb:hover {
+  background: #ffd700;
 }
 
 .gallery-item {
