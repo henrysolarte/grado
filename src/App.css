@@ -756,18 +756,18 @@
   font-size: 1.2rem;
   font-weight: bold;
   color: white;
-  background-color: #25D366;
-  border: 2px solid #128C7E;
+  background-color: #C9A961;
+  border: 2px solid #8B7338;
   border-radius: 10px;
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+  box-shadow: 0 8px 20px rgba(201, 169, 97, 0.3);
 }
 
 .whatsapp-button:hover {
-  background-color: #20BA5A;
-  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
+  background-color: #B8985A;
+  box-shadow: 0 12px 30px rgba(201, 169, 97, 0.5);
   transform: translateY(-3px);
 }
 

@@ -1,10 +1,16 @@
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  server: {
+    host: '0.0.0.0',
+    port: 5177,
+    strictPort: false
+  },
   preview: {
-    allowedHosts: ['grado-presentation.onrender.com', 'localhost']
+    host: '0.0.0.0',
+    port: 5177,
+    strictPort: true
   }
 })
