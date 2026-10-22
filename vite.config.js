@@ -11,6 +11,7 @@ export default defineConfig({
   preview: {
     host: '0.0.0.0',
     port: 5177,
-    strictPort: true
+    strictPort: true,
+    allowedHosts: ['grado-presentation.onrender.com']
   }
 })
