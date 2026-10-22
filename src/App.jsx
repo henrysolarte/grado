@@ -141,7 +141,7 @@ function App() {
       {stage === 'starwars' && (
         <div className="starwars-container">
           <div className="starwars-text">
-            <p>Hace Dieciséis años, en el planeta Tierra, un lindo niño llamado Samuel Solarte Polo inició su aventura. Esta etapa que ha batallado durante tanto tiempo llega a su fin, pero este final es realmente el inicio de su verdadera lucha.</p>
+            <p>Hace dieciséis años, en el planeta Tierra, un hermoso niño llamado Samuel Solarte Polo inició su gran aventura. Hoy culmina su etapa como bachiller, un camino de constante esfuerzo y aprendizaje que llega a su fin para dar paso al verdadero comienzo de sus grandes sueños.</p>
           </div>
         </div>
       )}
