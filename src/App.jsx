@@ -116,9 +116,14 @@ function App() {
   useEffect(() => {
     if (stage === 'starwars' || stage === 'photos' || stage === 'graduationCard' || stage === 'menu' || stage === 'galeria' || stage === 'invitacion' || stage === 'confirmacion' || stage === 'mapa') {
       if (audioRef.current) {
-        audioRef.current.play().catch(err => {
-          console.log('Error al reproducir audio:', err)
-        })
+        audioRef.current.muted = false
+        audioRef.current.volume = 1
+        const playPromise = audioRef.current.play()
+        if (playPromise !== undefined) {
+          playPromise.catch(err => {
+            console.log('Error al reproducir audio MCE.mp3:', err)
+          })
+        }
       }
     } else {
       if (audioRef.current) {
@@ -134,11 +139,15 @@ function App() {
         ref={audioRef}
         src="/musica/MCE.mp3"
         loop
+        preload="auto"
+        muted={false}
+        volume={1}
       ></audio>
 
       <audio 
         ref={countdownAudioRef}
         src="/musica/cuenta-regresiva.mp3"
+        preload="auto"
       ></audio>
 
       {stage === 'countdown' && (
