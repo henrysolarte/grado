@@ -884,8 +884,9 @@
   justify-content: center;
   align-items: center;
   filter: drop-shadow(0 0 5px rgba(201, 169, 97, 0.5));
-  margin-top: 20px;
-  margin-bottom: 40px;
+  margin-top: 40px;
+  margin-bottom: 60px;
+  flex-shrink: 0;
 }
 
 .page-home-button:hover {
