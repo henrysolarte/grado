@@ -9,17 +9,16 @@ function App() {
   const [expandedPhoto, setExpandedPhoto] = useState(null)
   const videoRef = useRef(null)
   const audioRef = useRef(null)
-  const countdownAudioRef = useRef(null)
 
   // Iniciar countdown y audio simultáneamente
   const handlePlayClick = () => {
     setCountdownStarted(true)
-    // Reproducir audio
-    if (countdownAudioRef.current) {
-      countdownAudioRef.current.currentTime = 0
-      countdownAudioRef.current.muted = false
-      countdownAudioRef.current.volume = 1
-      countdownAudioRef.current.play().catch(err => {
+    // Reproducir audio combinado (cuenta regresiva + MCE.mp3)
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0
+      audioRef.current.muted = false
+      audioRef.current.volume = 1
+      audioRef.current.play().catch(err => {
         console.log('Error al reproducir audio:', err)
       })
     }
@@ -58,14 +57,6 @@ function App() {
           console.log('Error en reproducción:', err)
         })
       }
-    }
-  }, [stage])
-
-  // Detener audio cuando se cambia de stage
-  useEffect(() => {
-    if (stage !== 'countdown' && countdownAudioRef.current) {
-      countdownAudioRef.current.pause()
-      countdownAudioRef.current.currentTime = 0
     }
   }, [stage])
 
@@ -112,24 +103,11 @@ function App() {
     }
   }, [stage])
 
-  // Control de música de fondo
+  // Control de música de fondo - pausa solo si volvemos a countdown
   useEffect(() => {
-    if (stage === 'starwars' || stage === 'photos' || stage === 'graduationCard' || stage === 'menu' || stage === 'galeria' || stage === 'invitacion' || stage === 'confirmacion' || stage === 'mapa') {
-      if (audioRef.current) {
-        audioRef.current.muted = false
-        audioRef.current.volume = 1
-        const playPromise = audioRef.current.play()
-        if (playPromise !== undefined) {
-          playPromise.catch(err => {
-            console.log('Error al reproducir audio MCE.mp3:', err)
-          })
-        }
-      }
-    } else {
-      if (audioRef.current) {
-        audioRef.current.pause()
-        audioRef.current.currentTime = 0
-      }
+    if (stage === 'countdown' && audioRef.current) {
+      audioRef.current.pause()
+      audioRef.current.currentTime = 0
     }
   }, [stage])
 
@@ -137,17 +115,11 @@ function App() {
     <div className="countdown-container">
       <audio 
         ref={audioRef}
-        src="/musica/MCE.mp3"
+        src="/musica/presentacion-audio.mp3"
         loop
         preload="auto"
         muted={false}
         volume={1}
-      ></audio>
-
-      <audio 
-        ref={countdownAudioRef}
-        src="/musica/cuenta-regresiva.mp3"
-        preload="auto"
       ></audio>
 
       {stage === 'countdown' && (
