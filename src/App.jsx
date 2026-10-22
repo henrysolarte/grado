@@ -81,8 +81,8 @@ function App() {
 
   useEffect(() => {
     if (stage === 'photos' && currentPhotoIndex < photos.length) {
-      // Todas las fotos se muestran 5 segundos
-      const duration = 5000
+      // Todas las fotos se muestran 3 segundos
+      const duration = 3000
       
       const timer = setTimeout(() => {
         setCurrentPhotoIndex(currentPhotoIndex + 1)
@@ -171,7 +171,7 @@ function App() {
             key={currentPhotoIndex}
             src={`/fotos/${photos[currentPhotoIndex]}`}
             alt={`Foto ${currentPhotoIndex + 1}`}
-            className={currentPhotoIndex === photos.length - 1 ? 'photo-display photo-effect-last-fade' : `photo-display photo-effect-${currentPhotoIndex % 10}`}
+            className={`photo-display photo-effect-${currentPhotoIndex % 10}`}
           />
         </div>
       )}

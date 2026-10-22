@@ -139,7 +139,7 @@
   height: auto;
   border-radius: 10px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-  animation: 5s ease-in-out forwards;
+  animation: 3s ease-in-out forwards;
 }
 
 /* Efecto 1: Fade + Zoom */
@@ -351,27 +351,6 @@
   100% {
     opacity: 0;
     transform: scale(1.5);
-  }
-}
-
-/* Efecto para última foto (samito20): 2 seg estática + 2 seg fade */
-.photo-effect-last-fade {
-  animation-name: last-photo-fade;
-  animation-duration: 4s;
-}
-
-@keyframes last-photo-fade {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1);
   }
 }
 
