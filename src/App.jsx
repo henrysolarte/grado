@@ -141,7 +141,7 @@ function App() {
       {stage === 'starwars' && (
         <div className="starwars-container">
           <div className="starwars-text">
-            <p>Hace dieciséis años, en el planeta Tierra, un hermoso niño llamado Samuel Solarte Polo inició su gran aventura. Hoy culmina su etapa como bachiller, un camino de constante esfuerzo y aprendizaje que llega a su fin para dar paso al verdadero comienzo de sus grandes sueños.</p>
+            <p>Hace 16 años, Dios nos regaló el tesoro más hermoso: tú, nuestro niño amado.  Hoy, con el corazón lleno de emoción, felicidad y orgullo, celebramos la culminación de tu bachillerato y el comienzo de una nueva etapa, llena de sueños, retos y oportunidades. ¡¡¡Vuela alto, Samuelito!!! Que Dios siempre vaya delante de ti, ilumine tu camino y guíe cada uno de tus pasos. Recuerda que, sin importar qué tan lejos llegues, nuestro amor te acompañará siempre.</p>
           </div>
         </div>
       )}
