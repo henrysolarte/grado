@@ -126,7 +126,7 @@ function App() {
         <div className="countdown-wrapper">
           {!countdownStarted && (
             <button className="play-button" onClick={handlePlayClick}>
-              ▶ PLAY
+              ABRIR
             </button>
           )}
           {countdownStarted && (
