@@ -925,6 +925,29 @@
   flex-wrap: wrap;
 }
 
+.countdown-target-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.crying-emoji-target {
+  font-size: 8rem;
+  margin-bottom: 2rem;
+  animation: bounce 1s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
 .time-unit {
   display: flex;
   flex-direction: column;

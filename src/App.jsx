@@ -233,25 +233,28 @@ function App() {
       {stage === 'countdownTarget' && (
         <div className="page-container countdown-target-container">
           {!timeRemaining.finished ? (
-            <div className="countdown-target-display">
-              <div className="time-unit">
-                <div className="time-value">{timeRemaining.days}</div>
-                <div className="time-label">Días</div>
-              </div>
-              <div className="time-separator">:</div>
-              <div className="time-unit">
-                <div className="time-value">{String(timeRemaining.hours).padStart(2, '0')}</div>
-                <div className="time-label">Horas</div>
-              </div>
-              <div className="time-separator">:</div>
-              <div className="time-unit">
-                <div className="time-value">{String(timeRemaining.minutes).padStart(2, '0')}</div>
-                <div className="time-label">Minutos</div>
-              </div>
-              <div className="time-separator">:</div>
-              <div className="time-unit">
-                <div className="time-value">{String(timeRemaining.seconds).padStart(2, '0')}</div>
-                <div className="time-label">Segundos</div>
+            <div className="countdown-target-wrapper">
+              <div className="crying-emoji-target">😭</div>
+              <div className="countdown-target-display">
+                <div className="time-unit">
+                  <div className="time-value">{timeRemaining.days}</div>
+                  <div className="time-label">Días</div>
+                </div>
+                <div className="time-separator">:</div>
+                <div className="time-unit">
+                  <div className="time-value">{String(timeRemaining.hours).padStart(2, '0')}</div>
+                  <div className="time-label">Horas</div>
+                </div>
+                <div className="time-separator">:</div>
+                <div className="time-unit">
+                  <div className="time-value">{String(timeRemaining.minutes).padStart(2, '0')}</div>
+                  <div className="time-label">Minutos</div>
+                </div>
+                <div className="time-separator">:</div>
+                <div className="time-unit">
+                  <div className="time-value">{String(timeRemaining.seconds).padStart(2, '0')}</div>
+                  <div className="time-label">Segundos</div>
+                </div>
               </div>
             </div>
           ) : (
