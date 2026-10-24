@@ -895,3 +895,82 @@
   background: rgba(0, 0, 0, 0.9);
   filter: drop-shadow(0 0 15px rgba(201, 169, 97, 0.8));
 }
+
+/* Estilos para Countdown Target */
+.countdown-target-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url('/fotos/fondo.png') center / cover no-repeat;
+  background-attachment: fixed;
+}
+
+.countdown-target-container h1 {
+  font-size: 4rem;
+  color: #C9A961;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  margin-bottom: 2rem;
+}
+
+.countdown-target-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #C9A961;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  flex-wrap: wrap;
+}
+
+.time-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 2px solid #C9A961;
+  min-width: 100px;
+}
+
+.time-value {
+  font-size: 3rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.time-label {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+}
+
+.time-separator {
+  font-size: 3rem;
+  margin: 0 0.5rem;
+}
+
+.countdown-finished-message {
+  font-size: 3rem;
+  color: #C9A961;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  animation: pulse 1s infinite;
+}
+
+.countdown-finished-message h2 {
+  font-size: 4rem;
+  margin: 0;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}

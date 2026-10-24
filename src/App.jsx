@@ -3,10 +3,17 @@ import './App.css'
 
 function App() {
   const [countdown, setCountdown] = useState(10)
-  const [stage, setStage] = useState('countdown') // countdown, starwars, photos, graduationCard, menu, galeria, invitacion, confirmacion, mapa
+  const [stage, setStage] = useState('countdown') // countdown, starwars, photos, graduationCard, menu, countdownTarget, invitacion, confirmacion, mapa
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0)
   const [countdownStarted, setCountdownStarted] = useState(false)
   const [expandedPhoto, setExpandedPhoto] = useState(null)
+  const [timeRemaining, setTimeRemaining] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+    finished: false
+  })
   const videoRef = useRef(null)
   const audioRef = useRef(null)
 
@@ -111,6 +118,34 @@ function App() {
     }
   }, [stage])
 
+  // Calcular tiempo restante para la fecha objetivo
+  useEffect(() => {
+    if (stage !== 'countdownTarget') return
+
+    const calculateTimeRemaining = () => {
+      const targetDate = new Date('2026-12-05T15:00:00').getTime()
+      const now = new Date().getTime()
+      const difference = targetDate - now
+
+      if (difference <= 0) {
+        setTimeRemaining({ days: 0, hours: 0, minutes: 0, seconds: 0, finished: true })
+        return
+      }
+
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24))
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000)
+
+      setTimeRemaining({ days, hours, minutes, seconds, finished: false })
+    }
+
+    calculateTimeRemaining()
+    const interval = setInterval(calculateTimeRemaining, 1000)
+
+    return () => clearInterval(interval)
+  }, [stage])
+
   return (
     <div className="countdown-container">
       <audio 
@@ -171,8 +206,8 @@ function App() {
         <div className="menu-container">
           <div className="menu-content">
             <div className="menu-buttons-grid">
-              <button className="menu-button" onClick={() => setStage('galeria')}>
-                <span>Galería</span>
+              <button className="menu-button" onClick={() => setStage('countdownTarget')}>
+                <span>😭 Countdown</span>
               </button>
               <button className="menu-button" onClick={() => setStage('invitacion')}>
                 <span>Invitación</span>
@@ -192,6 +227,42 @@ function App() {
               🏠
             </button>
           </div>
+        </div>
+      )}
+
+      {stage === 'countdownTarget' && (
+        <div className="page-container countdown-target-container">
+          <h1>😭 Countdown</h1>
+          {!timeRemaining.finished ? (
+            <div className="countdown-target-display">
+              <div className="time-unit">
+                <div className="time-value">{timeRemaining.days}</div>
+                <div className="time-label">Días</div>
+              </div>
+              <div className="time-separator">:</div>
+              <div className="time-unit">
+                <div className="time-value">{String(timeRemaining.hours).padStart(2, '0')}</div>
+                <div className="time-label">Horas</div>
+              </div>
+              <div className="time-separator">:</div>
+              <div className="time-unit">
+                <div className="time-value">{String(timeRemaining.minutes).padStart(2, '0')}</div>
+                <div className="time-label">Minutos</div>
+              </div>
+              <div className="time-separator">:</div>
+              <div className="time-unit">
+                <div className="time-value">{String(timeRemaining.seconds).padStart(2, '0')}</div>
+                <div className="time-label">Segundos</div>
+              </div>
+            </div>
+          ) : (
+            <div className="countdown-finished-message">
+              <h2>¡Lo lograste bb!</h2>
+            </div>
+          )}
+          <button className="page-home-button" onClick={() => setStage('menu')}>
+            🏠
+          </button>
         </div>
       )}
 
