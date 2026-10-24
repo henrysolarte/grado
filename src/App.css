@@ -68,7 +68,7 @@
 .starwars-text {
   max-width: 600px;
   text-align: center;
-  animation: starwars-fade 16s linear forwards;
+  animation: starwars-fade 20s linear forwards;
   transform-origin: center;
   background-color: #000;
   padding: 40px;
