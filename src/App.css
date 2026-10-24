@@ -885,7 +885,7 @@
   align-items: center;
   filter: drop-shadow(0 0 5px rgba(201, 169, 97, 0.5));
   position: fixed;
-  bottom: 150px;
+  bottom: 100px;
   right: 30px;
   z-index: 100;
 }
