@@ -974,3 +974,40 @@
     transform: scale(1.1);
   }
 }
+
+/* Media Query para Celular (Mobile) */
+@media (max-width: 768px) {
+  .countdown-target-display {
+    gap: 0.8rem;
+    font-size: 2rem;
+    flex-direction: column;
+  }
+
+  .time-unit {
+    padding: 1rem;
+    min-width: 90px;
+    width: 90px;
+  }
+
+  .time-value {
+    font-size: 2rem;
+  }
+
+  .time-label {
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+  }
+
+  .time-separator {
+    display: none;
+  }
+
+  .countdown-target-container h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .countdown-finished-message h2 {
+    font-size: 2.5rem;
+  }
+}
