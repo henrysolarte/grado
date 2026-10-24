@@ -69,10 +69,10 @@ function App() {
 
   useEffect(() => {
     if (stage === 'starwars') {
-      // Después de 20 segundos (animación de letras), pasar a fotos
+      // Después de 24 segundos (animación de letras), pasar a fotos
       const timer = setTimeout(() => {
         setStage('photos')
-      }, 20000)
+      }, 24000)
       return () => clearTimeout(timer)
     }
   }, [stage])
