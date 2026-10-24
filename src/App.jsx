@@ -232,7 +232,6 @@ function App() {
 
       {stage === 'countdownTarget' && (
         <div className="page-container countdown-target-container">
-          <h1>😭 Countdown</h1>
           {!timeRemaining.finished ? (
             <div className="countdown-target-display">
               <div className="time-unit">
