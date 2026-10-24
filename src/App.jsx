@@ -62,10 +62,10 @@ function App() {
 
   useEffect(() => {
     if (stage === 'starwars') {
-      // Después de 12 segundos (animación de letras), pasar a fotos
+      // Después de 16 segundos (animación de letras), pasar a fotos
       const timer = setTimeout(() => {
         setStage('photos')
-      }, 12000)
+      }, 16000)
       return () => clearTimeout(timer)
     }
   }, [stage])
@@ -141,7 +141,7 @@ function App() {
       {stage === 'starwars' && (
         <div className="starwars-container">
           <div className="starwars-text">
-            <p>Hace 16 años, Dios nos regaló el tesoro más hermoso: tú, nuestro niño amado.  Hoy, con el corazón lleno de emoción, felicidad y orgullo, celebramos la culminación de tu bachillerato y el comienzo de una nueva etapa, llena de sueños, retos y oportunidades. ¡¡¡Vuela alto, Samuelito!!! Que Dios siempre vaya delante de ti, ilumine tu camino y guíe cada uno de tus pasos. Recuerda que, sin importar qué tan lejos llegues, nuestro amor te acompañará siempre.</p>
+            <p>Hace 16 años, Dios nos regaló el tesoro más hermoso: tú, nuestro niño amado. Hoy, con el corazón lleno de emoción, felicidad y orgullo, celebramos la culminación de tu bachillerato y el comienzo de una nueva etapa, llena de sueños, retos y oportunidades. Mi Samu, recuerda que siempre podrás contar con nosotros.</p>
           </div>
         </div>
       )}
