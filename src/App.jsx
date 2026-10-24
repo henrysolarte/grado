@@ -132,7 +132,7 @@ function App() {
           {countdownStarted && (
             <div className="countdown-number">
               {countdown}
-            </div>
+            </div>|
           )}
         </div>
       )}
