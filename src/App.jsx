@@ -328,7 +328,7 @@ function App() {
         <div className="page-container">
           <h1>Confirmación</h1>
           <div className="confirmation-content">
-            <p className="confirmation-text">Confirma tu asistencia enviando un mensaje a:</p>
+            <p className="confirmation-text">Hola quiero confirmar mi asistencia al evento de Samuel:</p>
             <div className="whatsapp-buttons-group">
               <a 
                 href="https://wa.me/573186866521?text=Hola%20quiero%20confirmar%20mi%20asistencia%20al%20evento%20de%20Samuel"
