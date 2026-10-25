@@ -240,7 +240,8 @@ function App() {
         <div className="page-container countdown-target-container">
           {!timeRemaining.finished ? (
             <div className="countdown-target-display">
-              <div className="time-unit">
+              <div className="time-unit crying-days">
+                <div className="crying-emoji-days">😭</div>
                 <div className="time-value">{timeRemaining.days}</div>
                 <div className="time-label">Días</div>
               </div>

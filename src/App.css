@@ -956,6 +956,28 @@
   margin: 0 0.5rem;
 }
 
+.crying-days {
+  position: relative;
+}
+
+.crying-emoji-days {
+  font-size: 4rem;
+  position: absolute;
+  top: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bounce 1s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-20px);
+  }
+}
+
 .countdown-finished-message {
   font-size: 3rem;
   color: #C9A961;
