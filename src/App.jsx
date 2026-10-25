@@ -176,7 +176,15 @@ function App() {
       {stage === 'starwars' && (
         <div className="starwars-container">
           <div className="starwars-text">
-            <p>Hace 16 años, Dios nos regaló el tesoro más hermoso: tú, nuestro niño amado. Hoy, con el corazón lleno de emoción, felicidad y orgullo, celebramos la culminación de tu bachillerato y el comienzo de una nueva etapa, llena de sueños, retos y oportunidades. Mi Samu, recuerda que siempre podrás contar con nosotros.</p>
+            <p>
+              Con mucho cariño y gratitud a Dios, queremos compartir contigo este día tan especial que marca el inicio de una nueva etapa en la vida de nuestro hijo Samuelito " Escuchado por Dios".
+              <br />
+              <br />
+              Después de un camino lleno de aprendizajes, desafíos y mucha dedicación a llegado el momento. Acompáñanos a celebrar un sueño hecho realidad !!SU GRADUACIÓN!!
+              <br />
+              <br />
+              Brindemos por un futuro lleno de esperanza, salud y servicio.
+            </p>
           </div>
         </div>
       )}
