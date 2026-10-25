@@ -179,9 +179,7 @@ function App() {
             <p>
               Con mucho cariño y gratitud a Dios, queremos compartir contigo este día tan especial que marca el inicio de una nueva etapa en la vida de nuestro hijo Samuelito " Escuchado por Dios".
               <br />
-              <br />
               Después de un camino lleno de aprendizajes, desafíos y mucha dedicación a llegado el momento. Acompáñanos a celebrar un sueño hecho realidad !!SU GRADUACIÓN!!
-              <br />
               <br />
               Brindemos por un futuro lleno de esperanza, salud y servicio.
             </p>
